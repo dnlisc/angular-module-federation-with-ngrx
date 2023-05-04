@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as Actions from '../state/shell.actions'
+import { Observable } from 'rxjs';
+import { getShellFeature } from 'src/state/shell.reducers';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'shell';
+  shellFeature$!: Observable<boolean>;
+  
+  constructor(private store: Store) {
+    this.shellFeature$ = this.store.select(getShellFeature);
+  }
+
+  toggleShellFeature() {
+    this.store.dispatch(Actions.toggleShellFeature())
+  }
 }

@@ -1,2 +1,7 @@
-<div>shell</div>
-<router-outlet></router-outlet>
+<div class="container">
+    <p class="title">Shell container</p>
+    <div class="state">Shell feature: {{shellFeature$ | async}}</div>
+    <span class="action" (click)="toggleShellFeature()">Toggle shell feature</span>
+    <br><br>
+    <router-outlet></router-outlet>
+</div>

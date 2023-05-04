@@ -1,1 +1,8 @@
-<p>entry works!</p>
+<div class="mfe">
+    <p class="title">MFE</p>
+    <div class="state">Mfe feature: {{mfeFeature$ | async}}</div>
+    <div class="state">Shell feature: {{shellFeature$ | async}}</div>
+    <span class="action" (click)="toggleShellFeature()">Toggle shell feature</span>
+    <span class="action" (click)="toggleMfeFeature()">Toggle mfe feature</span>
+    <router-outlet></router-outlet>
+</div>
